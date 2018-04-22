@@ -1,0 +1,10 @@
+<div *ngIf="tour">
+  <h2>{{ tour.name}} </h2>
+  <div><span>id: </span>{{tour.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="tour.name" placeholder="name"/>
+    </label>
+  </div>
+  <div><span>{{tour.description}}</span> </div>
+</div>

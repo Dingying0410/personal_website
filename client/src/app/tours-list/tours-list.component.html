@@ -1,0 +1,18 @@
+<!-- This is the list of the tours-->
+<h2>My Tours</h2>
+
+<!-- Call the onSelct function when the box is clicked, and assign the selected tour-->
+<!--whether the selected class should be assigned depends on the expression-->
+<ul class="tours">
+  <li *ngFor="let tour of tours"
+      [class.selected]="tour === selectedTour"
+      (click)="onSelect(tour)">
+    <a routerLink="/detail/{{tour.id}}">
+    <span class="badge">{{tour.id}}</span> {{tour.name}}
+    </a>
+  </li>
+</ul>
+
+<!-- proerty binding-->
+<!--<app-tour-details [tour]="selectedTour"></app-tour-details>-->
+
