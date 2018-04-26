@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import {Image} from '../Model/Image'
 import {Tour} from '../Model/tour';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 import {catchError} from "rxjs/operators";
@@ -16,24 +18,19 @@ const httpOptions = {
 };
 
 @Injectable()
-export class ToursService {
+export class ImageService {
 
   private errorHandle : HandleError
 
   constructor(
     private http: HttpClient,
     private httpErrorHandler: HttpErrorHandler)
-     {this.errorHandle = httpErrorHandler.createHandleError("TourService") }
+  {this.errorHandle = httpErrorHandler.createHandleError("ImageService") }
 
-  getTours(): Observable<Tour[]> {
-    console.log("123")
-    return this.http.get<Tour[]>("api/v1/tours")
-      .pipe(catchError(this.errorHandle('Get Tours', [])))
+
+  getImage(id: number): Observable<Image> {
+    const url = 'api/v1/tourImages/' + id;
+    return this.http.get<Image>(url, httpOptions)
   }
 
-  getTour(id: number): Observable<Tour> {
-    console.log("id = " + id)
-    const url = 'api/v1/tours/' + id;
-    return this.http.get<Tour>(url, httpOptions)
-  }
 }

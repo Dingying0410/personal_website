@@ -8,6 +8,11 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TourDetailsComponent } from './tour-details/tour-details.component';
 import {FormsModule} from '@angular/forms';
 import {ToursService} from './tours.service';
+import { HttpClientModule } from '@angular/common/http';
+import {HttpErrorHandler} from "./http-error-handler.service";
+import {MessageService} from "./message.service";
+import {ImageService} from "./image.service";
+
 
 
 @NgModule({
@@ -19,9 +24,15 @@ import {ToursService} from './tours.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [ToursService],
+  providers: [
+    ToursService,
+    HttpErrorHandler,
+    MessageService,
+    ImageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Tour} from '../../Model/tour';
 import {ActivatedRoute} from '@angular/router';
 import {ToursService} from '../tours.service';
@@ -22,7 +22,11 @@ export class TourDetailsComponent implements OnInit {
   }
 
   getTour(): void {
-    const id = +(this.route.snapshot.paramMap.get('id'));
-    this.service.getTour(id).subscribe(tour => this.tour = tour);
+    console.log("123")
+    this.route.params.subscribe(params => {
+      console.log(params['id'])
+      this.service.getTour(+params['id'])
+        .subscribe(tour => this.tour = tour)
+    })
   }
 }

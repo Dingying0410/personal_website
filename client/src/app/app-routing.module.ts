@@ -12,7 +12,7 @@ export const routes: Routes = [{
   path: 'tours',
   component: ToursListComponent
 }, {
-  path: 'detail/:id',
+  path: 'tours/:id',
   component: TourDetailsComponent
 }];
 
