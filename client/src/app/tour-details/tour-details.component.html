@@ -7,4 +7,9 @@
     </label>
   </div>
   <div><span>{{tour.description}}</span> </div>
+  <ul id=""imageList>
+    <li *ngFor="let image of imageToShow">
+      <img src={{image}} width="220" height="220">
+    </li>
+  </ul>
 </div>

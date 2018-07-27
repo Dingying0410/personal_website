@@ -12,8 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {HttpErrorHandler} from "./http-error-handler.service";
 import {MessageService} from "./message.service";
 import {ImageService} from "./image.service";
-
-
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -26,12 +25,14 @@ import {ImageService} from "./image.service";
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HttpModule
   ],
   providers: [
     ToursService,
     HttpErrorHandler,
     MessageService,
-    ImageService
+    ImageService,
+
   ],
   bootstrap: [AppComponent]
 })

@@ -10,8 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
-    "mongoose": "^5.0.15"
+    "formidable": "^1.2.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "mongoose": "^5.0.15",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"

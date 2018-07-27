@@ -46,9 +46,26 @@ var addTour = function(newTour) {
     })
 }
 
+var updateTour = function(newTour) {
+    return new Promise((resolve, reject) => {
+        
+        TourModel.findOneAndUpdate({id: +newTour.id}, {description: newTour.description}, {new: true}, function (error, tour) {
+            if (error) {
+                console.log("error" + error)
+            } else {
+                console.log("update" + tour)
+                resolve(tour)
+            }
+        })
+        })
+}
+
+
+
 //for other components to call the problems, like the router
 module.exports =  {
     getTours: getTours,
     getTour: getTour,
-    addTour: addTour
+    addTour: addTour,
+    updateTour: updateTour
 }

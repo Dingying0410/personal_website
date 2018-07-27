@@ -1,21 +1,3 @@
-<!-- This is the list of the tours-->
-<!--<h2>My Tours</h2>-->
-
-<!--&lt;!&ndash; Call the onSelct function when the box is clicked, and assign the selected tour&ndash;&gt;-->
-<!--&lt;!&ndash;whether the selected class should be assigned depends on the expression&ndash;&gt;-->
-<!--<ul class="tours">-->
-  <!--<li *ngFor="let tour of tours"-->
-      <!--[class.selected]="tour === selectedTour"-->
-      <!--(click)="onSelect(tour)">-->
-    <!--<a routerLink="/tours/{{tour.id}}">-->
-    <!--<span class="badge">{{tour.id}}</span> {{tour.name}}-->
-    <!--</a>-->
-  <!--</li>-->
-<!--</ul>-->
-
-<!-- proerty binding-->
-<!--<app-tour-details [tour]="selectedTour"></app-tour-details>-->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,12 +9,6 @@
   <meta name="author" content="">
 
   <title>2 Col Portfolio - Start Bootstrap Template</title>
-
-  <!-- Bootstrap core CSS -->
-  <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-
-  <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
-  <!--<link href="css/2-col-portfolio.css" rel="stylesheet">-->
 
 </head>
 
@@ -77,11 +53,10 @@
   <div class="row">
     <div *ngFor="let tour of tours" class="col-lg-6 portfolio-item">
       <div class="card h-100">
-        <a href="#">
-          <img class="card-img-top" src= "assets/images/1.jpg" alt=""></a>
+          <img class="card-img-top" src= "assets/images/new-york.jpg" alt="">
         <div class="card-body">
           <h4 class="card-title">
-            <a href="#">{{tour.name}}</a>
+            <a routerLink="/tours/{{tour.id}}">{{tour.name}}</a>
           </h4>
           <p class="card-text">{{tour.description}}</p>
         </div>

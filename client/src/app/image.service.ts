@@ -1,14 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Image} from '../Model/Image'
-import {Tour} from '../Model/tour';
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
-import {catchError} from "rxjs/operators";
 
-import {HttpErrorHandler, HandleError} from "./http-error-handler.service";
+import {HandleError, HttpErrorHandler} from "./http-error-handler.service";
 
 const httpOptions = {
   headers: new HttpHeaders({

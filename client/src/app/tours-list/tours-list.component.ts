@@ -1,10 +1,9 @@
-import {Component, Inject, Injectable, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {Tour} from '../../Model/tour';
 import {Subscription} from "rxjs/Subscription";
 import {ToursService} from "../tours.service";
-import {forEach} from "@angular/router/src/utils/collection";
 import {ImageService} from "../image.service";
-import {Observable} from "rxjs/Observable";
+import {Http} from "@angular/http";
 
 @Component({
   selector: 'app-tours-list',
@@ -14,6 +13,7 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class ToursListComponent implements OnInit {
 
+
   tours : Tour[] = [];
 
   subscriptionTours: Subscription
@@ -22,7 +22,8 @@ export class ToursListComponent implements OnInit {
 
   constructor(
     private service : ToursService,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private http: Http
   ) { }
 
   ngOnInit() {
@@ -44,7 +45,6 @@ export class ToursListComponent implements OnInit {
   getImage(): void{
     console.log(this.tours.length)
     for (var i = 0; i < this.tours.length; i++) {
-      console.log(this.tours[i].id)
       this.imageService.getImage(+this.tours[i].id);
     }
   }
